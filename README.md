@@ -1,5 +1,8 @@
 # App repo for vteam14
 
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Wattarvipavag/vteam14-app/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/Wattarvipavag/vteam14-app/?branch=main)
+[![Build Status](https://scrutinizer-ci.com/g/Wattarvipavag/vteam14-app/badges/build.png?b=main)](https://scrutinizer-ci.com/g/Wattarvipavag/vteam14-app/build-status/main)
+
 #### **Clone the repository**
 
 ```bash
