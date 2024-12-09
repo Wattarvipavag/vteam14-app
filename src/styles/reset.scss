@@ -1,0 +1,60 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: $secondary-font, serif;
+}
+
+html,
+body {
+    line-height: 1.15;
+    background-color: $primary-green-light;
+    color: $neutral-black;
+    overflow-x: hidden; 
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img,
+video {
+    max-width: 100%;
+    height: auto;
+}
+
+.container {
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    gap: 16px; 
+    padding: 16px; 
+}
+
+.dashboard {
+    display: flex;
+    flex-direction: column; 
+    gap: 16px;
+    height: auto; 
+    padding: 16px;
+    overflow-y: auto; 
+}
+
+
+@media (min-width: 768px) {
+    .container {
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .dashboard {
+        flex-direction: row;
+        height: 100%;
+        overflow: hidden;
+    }
+}
