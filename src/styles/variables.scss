@@ -1,0 +1,29 @@
+// Primary Colors
+$primary-green: #34c759; // Vibrant green for primary actions like buttons
+$primary-green-dark: #248f3f; // Darker green for hover states or accents
+$primary-green-light: #d6f7e8; // Lighter green for highlights
+
+// Secondary Colors
+$secondary-blue: #0066cc; // More vibrant and professional blue for secondary actions
+$secondary-blue-light: #b3d9ff; // Light blue for hover states or backgrounds
+
+// Neutral Colors
+$neutral-black: #2c2c2c; // Darker text color for readability
+$neutral-gray: #7e7e7e; // Softer gray for secondary text
+$neutral-light-gray: #f7f7f7; // Very light gray background for better contrast
+
+// Accent Colors
+$accent-yellow: #f9a825; // Yellow with a warm feel for highlights
+$accent-red: #f44336; // Red for error messages, more vibrant
+
+// Gradients
+$gradient-green: linear-gradient(90deg, $primary-green, $primary-green-light);
+$gradient-blue: linear-gradient(90deg, $secondary-blue, $secondary-blue-light);
+
+// Shadow and Transparency
+$shadow: rgba(0, 0, 0, 0.15); // A slightly heavier shadow for more depth
+$overlay: rgba(0, 0, 0, 0.5); // Transparent overlay for modals
+
+// Fonts
+$primary-font: 'DM Sans', sans-serif;
+$secondary-font: 'Poppins', sans-serif;

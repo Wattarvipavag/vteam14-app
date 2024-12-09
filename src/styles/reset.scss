@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: $secondary-font, serif;
+}
+
+html,
+body {
+    line-height: 1.15;
+    background-color: $primary-green-light;
+    color: $neutral-black;
+    height: 100dvh;
+    overflow: hidden;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img,
+video {
+    max-width: 100%;
+    height: auto;
+}
+
+.container {
+    padding: .5rem;
+}
+
+@media (min-width: 768px) {
+    
+}
