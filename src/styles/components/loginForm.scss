@@ -1,11 +1,9 @@
 .login-form {
-    background: $neutral-light-gray;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9));
     border-radius: 12px;
     padding: 2.5rem;
-    box-shadow: 0 6px 15px $shadow;
     width: 100%;
     max-width: 420px;
-    border: 1px solid $primary-green;
 
     .login-title {
         font-size: 1.6rem;
@@ -21,7 +19,7 @@
         label {
             display: block;
             font-size: 1rem;
-            color: $neutral-gray;
+            color: $neutral-black;
             margin-bottom: 0.5rem;
         }
 
@@ -64,7 +62,6 @@
         position: relative;
 
         span {
-            background: $neutral-light-gray;
             padding: 0 1.5rem;
             position: relative;
             z-index: 1;
