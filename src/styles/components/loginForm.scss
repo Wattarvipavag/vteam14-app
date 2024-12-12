@@ -1,20 +1,20 @@
 .login-form {
-    background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9));
+    background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95));
     border-radius: 12px;
     padding: 2.5rem;
     width: 100%;
     max-width: 420px;
 
     .login-title {
-        font-size: 1.6rem;
-        font-weight: 700;
+        font-size: 1.8rem;
+        font-weight: 600;
         color: $neutral-black;
         margin-bottom: 2rem;
         text-align: center;
     }
 
     .form-group {
-        margin-bottom: 1.3rem;
+        margin-bottom: 2rem;
 
         label {
             display: block;
@@ -38,67 +38,33 @@
         }
     }
 
-    .login-button {
+    .button {
         width: 100%;
         padding: 0.8rem;
         font-size: 1.1rem;
         color: white;
-        background-color: $primary-green;
         border: none;
         border-radius: 6px;
         cursor: pointer;
-        transition: background-color 0.3s ease;
-
-        &:hover {
-            background-color: $primary-green-dark;
-        }
+        font-weight: 400;
     }
 
-    .divider {
-        margin: 2rem 0;
-        text-align: center;
-        color: $neutral-gray;
-        font-size: 1rem;
-        position: relative;
-
-        span {
-            padding: 0 1.5rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        &::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: $neutral-gray;
-            z-index: 0;
-        }
+    .login-button {
+        background-color: $primary-green-dark;
     }
 
     .github-login-button {
         background-color: $neutral-black;
-        width: 100%;
-        padding: 0.8rem;
-        font-size: 1.1rem;
-        color: white;
-        border: none;
-        border-radius: 6px;
         display: flex;
         align-items: center;
         justify-content: center;
-        cursor: pointer;
         gap: 0.6rem;
-        transition:
-            background-color 0.3s ease,
-            transform 0.2s ease;
+    }
 
-        &:hover {
-            background-color: darken($neutral-black, 10%);
-        }
+    .divider {
+        margin: 2rem 0;
+        height: 1px;
+        background: $neutral-gray;
     }
 
     .error-message {

@@ -1,20 +1,24 @@
 // Primary Colors
-$primary-green: #34c759; // Vibrant green for primary actions like buttons
-$primary-green-dark: #248f3f; // Darker green for hover states or accents
-$primary-green-light: #d6f7e8; // Lighter green for highlights
+$primary-green: #41ab5d; // Vibrant green for primary actions like buttons
+$primary-green-darkest: #005a32; // Darkest green for text and non nav icons
+$primary-green-dark: #238b45; // Darker green for hover states or accents
+$primary-green-light: #74c476; // Light green for highlights
+$primary-green-lighter: #a1d99b; // Lighter green for area on map
+$primary-green-even-lighter: #c7e9c0; // Even lighter green for
+$primary-green-lightest: #edf8e9; // Almost white
 
 // Secondary Colors
 $secondary-blue: #0066cc; // More vibrant and professional blue for secondary actions
 $secondary-blue-light: #b3d9ff; // Light blue for hover states or backgrounds
 
 // Neutral Colors
-$neutral-black: #2c2c2c; // Darker text color for readability
+$neutral-black: #0d1117; // Darker text color for readability
 $neutral-gray: #7e7e7e; // Softer gray for secondary text
 $neutral-light-gray: #f7f7f7; // Very light gray background for better contrast
 
 // Accent Colors
 $accent-yellow: #f9a825; // Yellow with a warm feel for highlights
-$accent-red: #f44336; // Red for error messages, more vibrant
+$accent-purple: #5b34ff; // Red for error messages, more vibrant
 
 // Gradients
 $gradient-green: linear-gradient(90deg, $primary-green, $primary-green-light);

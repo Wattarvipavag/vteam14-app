@@ -1,0 +1,55 @@
+.overview {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    > div {
+        display: flex;
+        gap: 1rem;
+    }
+
+    a,
+    .logout-btn {
+        width: 45vw;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        background-color: $primary-green-darkest;
+        border-radius: 12px;
+        text-align: center;
+        box-shadow:
+            rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
+            rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
+            rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset,
+            rgba(0, 0, 0, 0.06) 0px 2px 1px,
+            rgba(0, 0, 0, 0.09) 0px 4px 2px,
+            rgba(0, 0, 0, 0.09) 0px 8px 4px,
+            rgba(0, 0, 0, 0.09) 0px 16px 8px,
+            rgba(0, 0, 0, 0.09) 0px 32px 16px;
+
+        svg {
+            font-size: 1.4rem;
+            color: $neutral-light-gray;
+        }
+
+        p {
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: $neutral-light-gray;
+        }
+    }
+
+    .logout-btn {
+        background-color: #ba4852;
+        svg,
+        p {
+            color: $neutral-light-gray;
+        }
+    }
+}
