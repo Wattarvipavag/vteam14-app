@@ -1,45 +1,75 @@
-.nav {
-    color: $primary-green-light;
-    background-color: #248f3f;
-    position: absolute;
-    left: 0%;
-    bottom: 0%;
-    width: 100%;
+nav {
+    background-color: $primary-green-darkest;
     display: flex;
-    align-items: center;
-    justify-content: center;
-
-    .icon {
-        font-size: 2rem;
-        stroke-width: 1.25;
-    }
+    position: absolute;
+    width: 92%;
+    left: 4%;
+    bottom: 3%;
+    border-radius: 30px;
+    box-shadow:
+        rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
+        rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
+        rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset,
+        rgba(0, 0, 0, 0.06) 0px 2px 1px,
+        rgba(0, 0, 0, 0.09) 0px 4px 2px,
+        rgba(0, 0, 0, 0.09) 0px 8px 4px,
+        rgba(0, 0, 0, 0.09) 0px 16px 8px,
+        rgba(0, 0, 0, 0.09) 0px 32px 16px;
 
     div {
         flex: 1;
+        overflow: hidden;
     }
 
     a {
-        flex: 1;
+        flex: 3;
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        padding: .5rem;
-        font-size: 7px;
-        color: $primary-green-light;
+        gap: 0.3rem;
+        padding: 0.8rem 0;
+        font-size: 0.7rem;
+        font-weight: 500;
+        color: $primary-green-lightest;
+        opacity: 0.5;
+        overflow: hidden;
     }
 
-    .qricon {
-        background: $primary-green;
-        border-radius: 100%;
-        height: 75px;
-        width: 75px;
-        position: absolute;
-        bottom: 10px;
-        box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    .active {
+        color: $primary-green-lightest;
+        opacity: 1;
+    }
 
-        .icon {
-            font-size: 2.6rem;
-        }
+    .icon {
+        font-size: 1.4rem;
+    }
+
+    .qr-icon {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 95px;
+        width: 95px;
+        background-color: $primary-green-darkest;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        border: 5px solid $primary-green-darkest;
+        color: $primary-green-lightest;
+        gap: 0.3rem;
+        font-size: 0.7rem;
+        font-weight: 500;
+        box-shadow:
+            rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset,
+            rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset,
+            rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset,
+            rgba(0, 0, 0, 0.06) 0px 2px 1px,
+            rgba(0, 0, 0, 0.09) 0px 4px 2px,
+            rgba(0, 0, 0, 0.09) 0px 8px 4px,
+            rgba(0, 0, 0, 0.09) 0px 16px 8px,
+            rgba(0, 0, 0, 0.09) 0px 32px 16px;
     }
 }

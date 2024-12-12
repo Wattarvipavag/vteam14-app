@@ -2,19 +2,19 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: $secondary-font, serif;
+    font-family: $primary-font, serif;
 }
 
 html,
 body {
     line-height: 1.15;
-    background-color: $primary-green-light;
-    color: $neutral-black;
     height: 100dvh;
     overflow: hidden;
+    background-color: $primary-green-lightest;
+    -webkit-tap-highlight-color: transparent;
 }
 
-ul,
+body ul,
 ol {
     list-style: none;
 }
@@ -30,9 +30,6 @@ video {
 }
 
 .container {
-    padding: .5rem;
-}
-
-@media (min-width: 768px) {
-    
+    height: 100dvh;
+    padding: 1rem;
 }
