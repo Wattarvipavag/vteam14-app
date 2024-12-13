@@ -52,3 +52,11 @@ docker compose down
 ```bash
 npm run dev
 ```
+
+## **Tests**
+
+#### **Run Tests with Vitest**
+
+```bash
+npm run test
+```
