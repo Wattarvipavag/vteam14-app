@@ -10,10 +10,10 @@ export default function MobileNav() {
             </NavLink>
             <div></div>
             <div></div>
-            <div className='qr-icon'>
+            <NavLink to='/scan' className='qr-icon'>
                 <FaQrcode className='icon' />
                 Skanna
-            </div>
+            </NavLink>
             <NavLink to='/profile'>
                 <FaUser className='icon' />
                 <p>Profil</p>

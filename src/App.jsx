@@ -10,6 +10,7 @@ import Spinner from './components/Spinner';
 import { useEffect } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from './config/firebaseConfig';
+import ScanPage from './pages/ScanPage';
 
 function App() {
     const [user, loading] = useAuthState(auth);
@@ -32,12 +33,14 @@ function App() {
         <Routes>
             <Route path='/' element={<HomePage />} />
             <Route path='/login' element={<LoginPage />} />
+            <Route path='/scan' element={<ScanPage />} />
             <Route path='/profile' element={<ProfilePage />}>
                 <Route index element={<Overview />} />
                 <Route path='wallet' element={<Wallet />} />
                 <Route path='history' element={<History />} />
                 <Route path='account' element={<Account />} />
                 <Route path='*' element={<Navigate to={user ? '/' : '/login'} replace />} />
+                <Route path='scan' element={<ScanPage />} />
             </Route>
         </Routes>
     );
