@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../config/firebaseConfig.js';
 import { useNavigate } from 'react-router-dom';
+import { API_URL } from '../config/envConfig.js';
 
 function QrBarcodeScanner() {
     const [scooter, setScooter] = useState(null);
@@ -16,7 +17,7 @@ function QrBarcodeScanner() {
         if (!githubUser) return;
 
         const getUser = async () => {
-            const res = await axios.get(`http://localhost:8000/api/users/oauth/${githubUser.uid}`);
+            const res = await axios.get(`${API_URL}/users/oauth/${githubUser.uid}`);
             setUser(res.data.user);
         };
 
@@ -27,10 +28,10 @@ function QrBarcodeScanner() {
         if (!result) return;
 
         /* const url = result[0].rawValue; */
-        const url = 'http://localhost:8000/api/qrcode/67649189fd9691fc9d7635fd';
+        const url = `${API_URL}/qrcode/67649189fd9691fc9d7635fd`;
         const scooterId = url.split('/')[url.split('/').length - 1];
 
-        const res = await axios.get(`http://localhost:8000/api/bikes/${scooterId}`);
+        const res = await axios.get(`${API_URL}/bikes/${scooterId}`);
 
         if (!res.data.bike.available) return;
 
@@ -39,7 +40,7 @@ function QrBarcodeScanner() {
     };
 
     const handleRent = async () => {
-        const res = await axios.post(`http://localhost:8000/api/rentals`, {
+        const res = await axios.post(`${API_URL}/rentals`, {
             bikeId: scooter._id,
             userId: user._id,
         });

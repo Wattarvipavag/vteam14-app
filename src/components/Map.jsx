@@ -5,6 +5,7 @@ import axios from 'axios';
 import ReactDOM from 'react-dom/client';
 import { TbScooter, TbParking, TbChargingPile } from 'react-icons/tb';
 import logo from '../images/logo.png';
+import { API_URL } from '../config/envConfig.js';
 
 export default function Map({ location, zoom }) {
     const mapRef = useRef();
@@ -23,7 +24,7 @@ export default function Map({ location, zoom }) {
 
     useEffect(() => {
         const getCities = async () => {
-            const res = await axios.get('http://localhost:8000/api/cities');
+            const res = await axios.get(`${API_URL}/cities`);
             setCities(res.data);
         };
         getCities();
@@ -82,9 +83,9 @@ export default function Map({ location, zoom }) {
 
         if (markersVisible) {
             const getBikes = async () => {
-                const res = await axios.get('http://localhost:8000/api/bikes');
-                const chargingStations = await axios.get('http://localhost:8000/api/chargingstations');
-                const parkingAreas = await axios.get('http://localhost:8000/api/parkingareas');
+                const res = await axios.get(`${API_URL}/bikes`);
+                const chargingStations = await axios.get(`${API_URL}/chargingstations`);
+                const parkingAreas = await axios.get(`${API_URL}/parkingareas`);
 
                 let chargingCounter = {};
                 chargingStations.data.forEach((chargingstation) => {
@@ -190,7 +191,7 @@ export default function Map({ location, zoom }) {
 
             const getParkingAreas = async () => {
                 try {
-                    const res = await axios.get('http://localhost:8000/api/parkingareas');
+                    const res = await axios.get(`${API_URL}/parkingareas`);
 
                     res.data.forEach((parkingArea) => {
                         const popup = new mapboxgl.Popup({
@@ -224,7 +225,7 @@ export default function Map({ location, zoom }) {
 
             const getChargingStations = async () => {
                 try {
-                    const res = await axios.get('http://localhost:8000/api/chargingstations');
+                    const res = await axios.get(`${API_URL}/chargingstations`);
 
                     res.data.forEach((chargingStation) => {
                         const popup = new mapboxgl.Popup({

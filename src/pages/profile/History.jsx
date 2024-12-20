@@ -4,6 +4,7 @@ import { auth } from '../../config/firebaseConfig';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { API_URL } from '../../config/envConfig.js';
 
 export default function History() {
     const [githubUser] = useAuthState(auth);
@@ -12,7 +13,7 @@ export default function History() {
 
     useEffect(() => {
         const getUserHistory = async () => {
-            const user = await axios.get(`http://localhost:8000/api/users/history/${githubUser.uid}`);
+            const user = await axios.get(`${API_URL}/users/history/${githubUser.uid}`);
             setUserHistory(user.data.user.rentalHistory);
         };
         getUserHistory();
@@ -20,8 +21,8 @@ export default function History() {
 
     const handleCancelRental = async (id, bikeId) => {
         console.log('Cancel');
-        const bikeRes = await axios.get(`http://localhost:8000/api/bikes/${bikeId}`);
-        const res = await axios.put(`http://localhost:8000/api/rentals/${id}`, {
+        const bikeRes = await axios.get(`${API_URL}/bikes/${bikeId}`);
+        const res = await axios.put(`${API_URL}/rentals/${id}`, {
             longitude: bikeRes.data.bike.location.longitude,
             latitude: bikeRes.data.bike.location.latitude,
         });
