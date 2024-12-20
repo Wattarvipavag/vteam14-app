@@ -11,7 +11,7 @@ export default function LoginForm() {
 
     const handleGithubLogin = async () => {
         try {
-            await signInWithGithub();
+            const res = await signInWithGithub();
 
             const oauthId = res.user.uid;
             const name = res.user.displayName ? res.user.displayName : 'Namnlös?';
