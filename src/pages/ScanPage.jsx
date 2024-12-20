@@ -3,6 +3,7 @@ import MobileNav from '../components/MobileNav';
 import QrBarcodeScanner from '../components/QrBarcodeScanner';
 import { auth } from '../config/firebaseConfig';
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 function QrScanner() {
     const [user] = useAuthState(auth);
