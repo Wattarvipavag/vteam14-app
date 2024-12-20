@@ -2,6 +2,8 @@ import { FaGithub } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import { auth } from '../config/firebaseConfig';
 import { useSignInWithGithub } from 'react-firebase-hooks/auth';
+import axios from 'axios';
+import { API_URL } from '../config/envConfig.js';
 
 export default function LoginForm() {
     const [signInWithGithub, user, loading] = useSignInWithGithub(auth);
@@ -10,6 +12,19 @@ export default function LoginForm() {
     const handleGithubLogin = async () => {
         try {
             await signInWithGithub();
+
+            const oauthId = res.user.uid;
+            const name = res.user.displayName ? res.user.displayName : 'Namnlös?';
+            const email = res.user.email ? res.user.email : 'Finns ej';
+            const profileImage = res.user.photoURL;
+
+            await axios.post(`${API_URL}/api/login`, {
+                oauthId,
+                name,
+                email,
+                profileImage,
+            });
+
             navigate('/profile');
         } catch (error) {
             console.error(error);
