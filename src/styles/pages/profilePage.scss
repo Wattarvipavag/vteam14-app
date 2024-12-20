@@ -4,3 +4,45 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+.history-list {
+    margin-top: 1rem;
+    border-radius: 12px;
+    height: 45vh;
+    overflow: scroll;
+    overflow-x: hidden;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.history-item {
+    background-color: $primary-green-light;
+    padding: 1rem;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    margin-top: 20px;
+
+    h2 {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+        color: #333;
+    }
+
+    p {
+        font-size: 0.9rem;
+        margin: 0.2rem 0;
+    }
+
+    button {
+        margin-top: 1rem;
+        background-color: $primary-green-lightest;
+        border: 1px solid $primary-green-darkest;
+        font-size: 1rem;
+        font-weight: 500;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+    }
+}

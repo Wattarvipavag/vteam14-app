@@ -58,7 +58,6 @@ export default function Map({ location, zoom }) {
     useEffect(() => {
         if (currentLocationMarkerRef.current) {
             currentLocationMarkerRef.current.setLngLat([location.longitude, location.latitude]);
-            mapRef.current.setCenter([location.longitude, location.latitude]);
         }
     }, [location]);
 
@@ -286,7 +285,7 @@ export default function Map({ location, zoom }) {
             citiesRef.current.forEach((marker) => marker.remove());
             citiesRef.current = [];
         }
-    }, [location, markersVisible]);
+    }, [markersVisible]);
 
     return <div className='map' ref={mapContainerRef}></div>;
 }
