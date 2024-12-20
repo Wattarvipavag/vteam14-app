@@ -18,7 +18,7 @@ export default function LoginForm() {
             const email = res.user.email ? res.user.email : 'Finns ej';
             const profileImage = res.user.photoURL;
 
-            await axios.post(`${API_URL}/api/login`, {
+            await axios.post(`${API_URL}/login`, {
                 oauthId,
                 name,
                 email,
