@@ -5,7 +5,7 @@ export default function BackButton({ name }) {
     const navigate = useNavigate();
 
     const handleBackButton = () => {
-        navigate(-1);
+        navigate('/profile');
     };
 
     return (

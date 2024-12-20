@@ -11,6 +11,7 @@
     "test": "vitest"
   },
   "dependencies": {
+    "@yudiel/react-qr-scanner": "^2.1.0",
     "axios": "^1.7.9",
     "firebase": "^11.0.2",
     "mapbox-gl": "^3.9.0",

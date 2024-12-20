@@ -1,12 +1,13 @@
-import react from 'react';
-import QrScanner from '../components/QrBarcodeScanner';
+import MobileNav from '../components/MobileNav';
+import QrBarcodeScanner from '../components/QrBarcodeScanner';
 
-const ScanPage = () => {
+function QrScanner() {
     return (
-        <div>
-            <QrScanner />
+        <div className='scan-page'>
+            <QrBarcodeScanner />
+            <MobileNav />
         </div>
     );
-};
+}
 
-export default ScanPage;
+export default QrScanner;
