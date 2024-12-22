@@ -27,9 +27,7 @@ function QrBarcodeScanner() {
     const handleScan = async (result) => {
         if (!result) return;
 
-        /* const url = result[0].rawValue; */
-        const url = `${API_URL}/qrcode/67649189fd9691fc9d7635fd`;
-        const scooterId = url.split('/')[url.split('/').length - 1];
+        const scooterId = result[0].rawValue;
 
         const res = await axios.get(`${API_URL}/bikes/${scooterId}`);
 
