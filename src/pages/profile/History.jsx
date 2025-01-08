@@ -22,9 +22,11 @@ export default function History() {
     const handleCancelRental = async (id, bikeId) => {
         console.log('Cancel');
         const bikeRes = await axios.get(`${API_URL}/bikes/${bikeId}`);
+        let charge = bikeRes.data.bike.charge > 10 ? bikeRes.data.bike.charge - 5 : bikeRes.data.bike.charge;
         const res = await axios.put(`${API_URL}/rentals/${id}`, {
             longitude: bikeRes.data.bike.location.longitude,
             latitude: bikeRes.data.bike.location.latitude,
+            charge: charge,
         });
         navigate('/');
     };
