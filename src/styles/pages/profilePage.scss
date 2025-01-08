@@ -46,3 +46,57 @@
         border-radius: 5px;
     }
 }
+
+.balance {
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    h3 {
+        font-size: 3rem;
+    }
+
+    span {
+        font-size: 1.2rem;
+    }
+}
+
+.add-money {
+    width: 400px;
+    padding: 2rem;
+    border-radius: 6px;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border: 1px solid $primary-green;
+
+    h3 {
+        font-weight: 500;
+    }
+
+    input {
+        padding: 1rem;
+        border: 1px solid $primary-green;
+        border-radius: 6px;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    button {
+        padding: 0.8rem;
+        border: 1px solid $primary-green;
+        background-color: $primary-green-dark;
+        transition: background-color 0.3s ease;
+        border-radius: 6px;
+        cursor: pointer;
+        color: white;
+
+        &:hover {
+            background-color: $primary-green;
+        }
+    }
+}

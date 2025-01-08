@@ -33,12 +33,6 @@ export default function Overview() {
                 </NavLink>
             </div>
             <div>
-                <NavLink to='/profile/account'>
-                    <div>
-                        <FaUserEdit />
-                        <p>Hantera konto</p>
-                    </div>
-                </NavLink>
                 <div className='logout-btn' onClick={handleLogout}>
                     <FaSignOutAlt />
                     <p>Logga ut</p>
