@@ -4,7 +4,6 @@ import LoginPage from './pages/LoginPage';
 import ProfilePage from './pages/ProfilePage';
 import Wallet from './pages/profile/Wallet';
 import History from './pages/profile/History';
-import Account from './pages/profile/Account';
 import Overview from './pages/profile/Overview';
 import Spinner from './components/Spinner';
 import { useEffect } from 'react';
@@ -38,7 +37,6 @@ function App() {
                 <Route index element={<Overview />} />
                 <Route path='wallet' element={<Wallet />} />
                 <Route path='history' element={<History />} />
-                <Route path='account' element={<Account />} />
                 <Route path='*' element={<Navigate to={user ? '/' : '/login'} replace />} />
                 <Route path='scan' element={<ScanPage />} />
             </Route>
