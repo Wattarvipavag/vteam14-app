@@ -8,6 +8,8 @@ import logo from '../images/logo.png';
 import { API_URL } from '../config/envConfig.js';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../config/firebaseConfig.js';
+import { useNavigate } from 'react-router-dom';
+import { signOut } from 'firebase/auth';
 
 export default function Map({ location, zoom }) {
     const mapRef = useRef();
@@ -22,6 +24,7 @@ export default function Map({ location, zoom }) {
     const currentLocationMarkerRef = useRef(null);
     const [user] = useAuthState(auth);
     const token = user.accessToken;
+    const navigate = useNavigate();
 
     const isTestEnvironment = import.meta.env.NODE_ENV === 'test';
 
@@ -55,7 +58,6 @@ export default function Map({ location, zoom }) {
             } catch (error) {
                 console.log(error);
                 await signOut();
-                setRole(null);
                 navigate('/');
             }
         };
