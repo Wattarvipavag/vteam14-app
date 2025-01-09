@@ -6,7 +6,7 @@ import axios from 'axios';
 import { API_URL } from '../config/envConfig.js';
 
 export default function LoginForm() {
-    const [signInWithGithub, user, loading] = useSignInWithGithub(auth);
+    const [signInWithGithub, , , loading] = useSignInWithGithub(auth);
     const navigate = useNavigate();
 
     const handleGithubLogin = async () => {

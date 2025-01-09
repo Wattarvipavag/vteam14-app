@@ -1,4 +1,4 @@
-import { FaUserEdit, FaSignOutAlt, FaHistory, FaCreditCard } from 'react-icons/fa';
+import { FaSignOutAlt, FaHistory, FaCreditCard } from 'react-icons/fa';
 import { NavLink } from 'react-router-dom';
 import { useSignOut } from 'react-firebase-hooks/auth';
 import { auth } from '../../config/firebaseConfig';

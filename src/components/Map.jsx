@@ -6,6 +6,8 @@ import ReactDOM from 'react-dom/client';
 import { TbScooter, TbParking, TbChargingPile } from 'react-icons/tb';
 import logo from '../images/logo.png';
 import { API_URL } from '../config/envConfig.js';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from '../config/firebaseConfig.js';
 
 export default function Map({ location, zoom }) {
     const mapRef = useRef();
@@ -15,16 +17,18 @@ export default function Map({ location, zoom }) {
     const citiesRef = useRef([]);
     const [cities, setCities] = useState([]);
     const currentLocationMarkerRef = useRef(null);
+    const [user] = useAuthState(auth);
+    const token = user.accessToken;
 
-    const isTestEnvironment = process.env.NODE_ENV === 'test';
-
-    if (isTestEnvironment) {
-        return;
-    }
+    const isTestEnvironment = import.meta.env.NODE_ENV === 'test';
 
     useEffect(() => {
         const getCities = async () => {
-            const res = await axios.get(`${API_URL}/cities`);
+            const res = await axios.get(`${API_URL}/cities`, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
             setCities(res.data);
         };
         getCities();
@@ -83,9 +87,21 @@ export default function Map({ location, zoom }) {
 
         if (markersVisible) {
             const getBikes = async () => {
-                const res = await axios.get(`${API_URL}/bikes`);
-                const chargingStations = await axios.get(`${API_URL}/chargingstations`);
-                const parkingAreas = await axios.get(`${API_URL}/parkingareas`);
+                const res = await axios.get(`${API_URL}/bikes`, {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                });
+                const chargingStations = await axios.get(`${API_URL}/chargingstations`, {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                });
+                const parkingAreas = await axios.get(`${API_URL}/parkingareas`, {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                });
 
                 let chargingCounter = {};
                 chargingStations.data.forEach((chargingstation) => {
@@ -97,7 +113,7 @@ export default function Map({ location, zoom }) {
                     parkingCounter[parkingarea._id] = 0;
                 });
 
-                res.data.forEach((bike, id) => {
+                res.data.forEach((bike) => {
                     if (!bike.available) return;
                     const markerElement = document.createElement('div');
                     let chargeColor =
@@ -191,7 +207,11 @@ export default function Map({ location, zoom }) {
 
             const getParkingAreas = async () => {
                 try {
-                    const res = await axios.get(`${API_URL}/parkingareas`);
+                    const res = await axios.get(`${API_URL}/parkingareas`, {
+                        headers: {
+                            Authorization: `Bearer ${token}`,
+                        },
+                    });
 
                     res.data.forEach((parkingArea) => {
                         const popup = new mapboxgl.Popup({
@@ -225,7 +245,11 @@ export default function Map({ location, zoom }) {
 
             const getChargingStations = async () => {
                 try {
-                    const res = await axios.get(`${API_URL}/chargingstations`);
+                    const res = await axios.get(`${API_URL}/chargingstations`, {
+                        headers: {
+                            Authorization: `Bearer ${token}`,
+                        },
+                    });
 
                     res.data.forEach((chargingStation) => {
                         const popup = new mapboxgl.Popup({
@@ -287,6 +311,10 @@ export default function Map({ location, zoom }) {
             citiesRef.current = [];
         }
     }, [markersVisible]);
+
+    if (isTestEnvironment) {
+        return;
+    }
 
     return <div className='map' ref={mapContainerRef}></div>;
 }

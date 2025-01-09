@@ -9,10 +9,15 @@ export default function Wallet() {
     const [githubUser] = useAuthState(auth);
     const [user, setUser] = useState();
     const [money, setMoney] = useState('');
+    const token = githubUser.accessToken;
 
     useEffect(() => {
         const getUser = async () => {
-            const user = await axios.get(`${API_URL}/users/oauth/${githubUser.uid}`);
+            const user = await axios.get(`${API_URL}/users/oauth/${githubUser.uid}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
             setUser(user.data.user);
         };
         getUser();
@@ -22,9 +27,17 @@ export default function Wallet() {
         if (!money) return;
         const balance = parseInt(user.balance) + parseInt(money);
 
-        await axios.post(`${API_URL}/users/${user._id}`, {
-            balance,
-        });
+        await axios.post(
+            `${API_URL}/users/${user._id}`,
+            {
+                balance,
+            },
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            }
+        );
 
         setUser((prevUser) => ({ ...prevUser, balance }));
 

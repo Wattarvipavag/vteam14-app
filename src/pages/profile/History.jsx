@@ -10,10 +10,15 @@ export default function History() {
     const [githubUser] = useAuthState(auth);
     const [userHistory, setUserHistory] = useState([]);
     const navigate = useNavigate();
+    const token = githubUser.accessToken;
 
     useEffect(() => {
         const getUserHistory = async () => {
-            const user = await axios.get(`${API_URL}/users/history/${githubUser.uid}`);
+            const user = await axios.get(`${API_URL}/users/history/${githubUser.uid}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
             setUserHistory(user.data.user.rentalHistory);
         };
         getUserHistory();
@@ -21,13 +26,25 @@ export default function History() {
 
     const handleCancelRental = async (id, bikeId) => {
         console.log('Cancel');
-        const bikeRes = await axios.get(`${API_URL}/bikes/${bikeId}`);
-        let charge = bikeRes.data.bike.charge > 10 ? bikeRes.data.bike.charge - 5 : bikeRes.data.bike.charge;
-        const res = await axios.put(`${API_URL}/rentals/${id}`, {
-            longitude: bikeRes.data.bike.location.longitude,
-            latitude: bikeRes.data.bike.location.latitude,
-            charge: charge,
+        const bikeRes = await axios.get(`${API_URL}/bikes/${bikeId}`, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
         });
+        let charge = bikeRes.data.bike.charge > 10 ? bikeRes.data.bike.charge - 5 : bikeRes.data.bike.charge;
+        await axios.put(
+            `${API_URL}/rentals/${id}`,
+            {
+                longitude: bikeRes.data.bike.location.longitude,
+                latitude: bikeRes.data.bike.location.latitude,
+                charge: charge,
+            },
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            }
+        );
         navigate('/');
     };
 
