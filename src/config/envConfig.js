@@ -1,4 +1,4 @@
-const ENV = process.env.NODE_ENV || 'development';
+const ENV = import.meta.env.NODE_ENV || 'development';
 
 const config = {
     development: {
@@ -6,6 +6,9 @@ const config = {
     },
     production: {
         API_URL: 'https://vteam14-backend.onrender.com/api',
+    },
+    test: {
+        API_URL: 'http://localhost:8000/api',
     },
 };
 
