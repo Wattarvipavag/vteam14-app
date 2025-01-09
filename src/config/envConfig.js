@@ -5,7 +5,7 @@ const config = {
         API_URL: 'http://localhost:8000/api',
     },
     production: {
-        API_URL: 'https://vteam14-backend.onrender.com/api',
+        API_URL: import.meta.env.VITE_API_URL,
     },
     test: {
         API_URL: 'http://localhost:8000/api',
