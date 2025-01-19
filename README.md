@@ -61,3 +61,9 @@ npm run dev
 ```bash
 npm run test
 ```
+
+or
+
+```bash
+npm run test:coverage
+```
