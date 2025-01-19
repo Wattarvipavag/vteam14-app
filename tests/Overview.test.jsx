@@ -1,4 +1,4 @@
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import { render, screen} from '@testing-library/react';
 import Overview from '../src/pages/profile/Overview';
 import { vi } from 'vitest';
 import { BrowserRouter as Router } from 'react-router-dom';
