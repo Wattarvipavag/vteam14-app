@@ -29,7 +29,7 @@ jobs:
 
             - name: Print environment variables
               run: |
-                  echo "VITE_API_KEY=${{ secrets.VITE_API_KEY }}"
+                  echo "VITE_API_KEY="${{ secrets.VITE_API_KEY }}
                   echo "VITE_AUTH_DOMAIN=${{ secrets.VITE_AUTH_DOMAIN }}"
                   echo "VITE_PROJECT_ID=${{ secrets.VITE_PROJECT_ID }}"
                   echo "VITE_STORAGE_BUCKET=${{ secrets.VITE_STORAGE_BUCKET }}"
